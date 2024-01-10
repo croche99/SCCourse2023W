@@ -1,3 +1,19 @@
-Nematostella vectensis reference genome was downloaded from NCBI under accession and transfered to LiSC via FileZilla using personal account credentials.
+Nematostella vectensis reference genome was downloaded from NCBI under accession and transfered to the personal directory LiSC via FileZilla using personal account credentials.
 
-RNA sequencing reads coming from the 11th run of 
+Name: jaNemVect1.1
+RefSeq: GCF_932526225.1
+Date: March 23, 2022
+
+Genome was indexed with the software STAR (Version 2.7.11a).
+
+module load star
+unzip nvgenome.zip
+STAR --runMode genomeGenerate --runThreadN 8 --genomeDir jaNemVect1.1_STAR --genomeFastaFiles GCF_932526225.1_jaNemVect1.1_genomic.fna --genomeSAindexNbases
+13
+
+Paired-end reads from Illumina RNA sequencing coming from a pooled blastula of Nematostella vectensis, published on December 31st, 2023, were downloaded using the following script.
+In particular, this RNA library corresponded with the 11th run of the expreiment (Accession: SRR24348405).
+
+module load sratoolkit
+prefetch SRR24348405
+fasterq-dump –-split-files SRR24348405
