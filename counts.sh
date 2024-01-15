@@ -9,6 +9,6 @@
 #SBATCH --error=/scratch/course/2023w300106/rochearcas/featurecounts/featurecounts.err
 
 module load subread
-featureCounts -a /scratch/course/2023w300106/rochearcas/annotation/ncbi_dataset/data/GCF_932526225.1/genomic.gtf \
+featureCounts -a /scratch/course/2023w300106/jmontenegro/ex2/annotation/tmp.gtf \
 	-o countmatrixNvpooledblastula /scratch/course/2023w300106/rochearcas/alignments/trimmed/SRR24348405_trimmedAligned.sortedByCoord.out.bam \
 	-s 2 -C -p -Q 20 --countReadPairs -T 16
