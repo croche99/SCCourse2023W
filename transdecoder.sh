@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=gffread
+#SBATCH --job-name=transdecoder
 #SBATCH --nodes=1
 #SBATCH --cpus-per-task=16
 #SBATCH --mem=10G
