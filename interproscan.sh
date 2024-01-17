@@ -12,5 +12,5 @@ module load interproscan
 module list
 
 interproscan.sh -b /scratch/course/2023w300106/rochearcas/functionalannotation/NemVec.function -cpu 16 -etra -f TSV,GFF3 -goterms \
-	-i /scratch/course/2023w300106/rochearcas/proteinTransdecoder.fasta -iprlookup -pa -t p
+	-i /scratch/course/2023w300106/rochearcas/functionalannotation/proteinTransdecoder.fasta -iprlookup -pa -t p
 # -t type of sequence protein
