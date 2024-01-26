@@ -6,8 +6,16 @@
 #SBATCH --time=10:00:00
 #SBATCH --partition=basic
 
+#Stringtie is an assembler of RNA-seq reads into potential full transcripts
+
 module load stringtie
 module list
 
+#Move to the correct output directory
 cd /scratch/course/2023w300106/rochearcas/stringtie-ex6
-stringtie ../alignments/trimmed/SRR24348405_trimmedAligned.sortedByCoord.out.bam -p 6 -l Nv1 -o NemAnnotation.gtf
+
+#Run the command
+stringtie ../alignments/trimmed/SRR24348405_trimmedAligned.sortedByCoord.out.bam \ #Input bam alignment file
+    -p 6 \ #Number of threads to use
+    -l Nv1 \ #Name prefix
+    -o NemAnnotation.gtf #Name of the output file
