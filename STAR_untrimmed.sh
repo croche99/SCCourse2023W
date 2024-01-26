@@ -17,6 +17,13 @@ cd /scratch/course/2023w300106/rochearcas/Nvec_genome
 STAR --runThread 16 \ #Number of CPUs to run the program with, must be less or equal to the resources requested
 	--runMode genomeGenerate \ #In order to index the genome in FASTA format
  	--genomeDir /scratch/course/2023w300106/rochearcas/1part/Nvec_genome/fasta \ #Path to the genome FASTA file
+
+STAR --runMode genomeGenerate \ #In order to index the genome in FASTA format
+	--runThreadN 8 \ #Number of CPUs to run the program with, must be less or equal to the resources requested
+ 	--genomeDir jaNemVect1.1_STAR \ #Path to the genome FASTA file
+  	--genomeFastaFiles GCF_932526225.1_jaNemVect1.1_genomic.fna 
+   	--genomeSAindexNbases 13 #Slightly small genome, by default is 14
+
 	
 ##move to the correct environment
 cd /scratch/course/2023w300106/rochearcas/alignments/untrimmed/
