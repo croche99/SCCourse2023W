@@ -11,7 +11,7 @@ module list
 
 samtools view -b \ #The output should be in bam format
 	-o /scratch/course/2023w300106/BAMS/SRR24348405.f.bam \ #Output with the filtered alignments
- 	-q 20 \ #Minimum alignment quality to pass the filtering
+ 	-q 20 \ #Minimum alignment quality to pass the filtering. In this case, 1% probability of being wrongly sequenced
   	-f 0x2 \ #Flag to indicate to filter for segments properly aligned
    	-F 0x4 \ #Flag to indicate to exclude unmapped segments
 	-@ 8 \ #Number of threads to run the program, must be equal or lower to resources requested
