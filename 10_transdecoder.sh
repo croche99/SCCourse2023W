@@ -22,5 +22,5 @@ TransDecoder.LongOrfs -t transcripts.fasta \
   	--complete_orfs_only #Only considers those starting with Met and finishing with stop codon
 
 TransDecoder.Predict -t transcripts.fasta \
-	--single_best_only  #Selects one ORF per transcript based on homology \
+	--single_best_only  #Selects one ORF per transcript based on homology against Pfam \
  	-O jaNemVec.transdecoder
