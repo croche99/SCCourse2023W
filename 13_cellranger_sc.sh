@@ -9,8 +9,11 @@
 module load cellranger
 module list
 
-cellranger count --id 12hr --transcriptome /scratch/course/2023w300106/rochearcas/Nvec_genome \
+cellranger count --id 12hr #Output folder name \
+	--transcriptome /scratch/course/2023w300106/rochearcas/Nvec_genome #Path to 10xcompatible indexed transcriptome reference\
 	--fastqs /scratch/course/2023w300106/12hr1/run1,/scratch/course/2023w300106/12hr1/run2,/scratch/course/2023w300106/12hr1/run3 \
-	--sample 89085 --nosecondary --localcores 16
+	--sample 89085 #Prefix of samples to select \
+ 	--nosecondary #Disable secondary analysis \
+  	--localcores 16
 
 #Cellranger goes to the three directories and tries to find for the files beginning with the ID 89085
