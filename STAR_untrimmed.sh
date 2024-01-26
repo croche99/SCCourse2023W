@@ -12,13 +12,23 @@
 module load star
 module list
 
-##preparing environment
+##generate an indexing of the reference genome
+cd /scratch/course/2023w300106/rochearcas/Nvec_genome
+STAR --runThread 16 \ #Number of CPUs to run the program with, must be less or equal to the resources requested
+	--runMode genomeGenerate \ #In order to index the genome in FASTA format
+ 	--genomeDir /scratch/course/2023w300106/rochearcas/1part/Nvec_genome/fasta \ #Path to the genome FASTA file
+	
+##move to the correct environment
 cd /scratch/course/2023w300106/rochearcas/alignments/untrimmed/
 
-
 ##script for STAR
-STAR --runThreadN 16 --genomeDir /scratch/course/2023w300106/rochearcas/genome/ncbi_dataset/data/GCF_932526225.1/jaNemVect1.1_STAR \
-	--readFilesIn /scratch/course/2023w300106/rochearcas/rawreads/SRR24348405_1.fastq /scratch/course/2023w300106/rochearcas/rawreads/SRR24348405_2.fastq \
-	--outSAMtype BAM SortedByCoordinate --twopassMode Basic \
-	--outSAMstrandField intronMotif --outFileNamePrefix SRR24348405
+STAR \
+	--runThreadN 16 \ #Number of CPUs to use
+ 	--genomeDir /scratch/course/2023w300106/rochearcas/genome/ncbi_dataset/data/GCF_932526225.1/jaNemVect1.1_STAR \
+	--readFilesIn /scratch/course/2023w300106/rochearcas/rawreads/SRR24348405_1.fastq \
+ 			/scratch/course/2023w300106/rochearcas/rawreads/SRR24348405_2.fastq \ #Paired-end sequencing, forward and reverse reads
+	--outSAMtype BAM SortedByCoordinate \ #Alignments are ordered according to their position in the genome
+ 	--twopassMode Basic \ #Finish junctions of the first reads file before starting alignment of the second reads
+	--outSAMstrandField intronMotif \ #Generate spliced alignments from unstranded RNA-seq data
+ 	--outFileNamePrefix SRR24348405 #Same as our sample NCBI reference
 
