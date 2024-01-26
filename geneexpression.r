@@ -1,17 +1,18 @@
-setwd("/Users/carlo/Desktop/Bachelor & Master/Master Degree - Evolutionary Systems Biology/Third Semester/Analysis of scRNA-seq")
 summary <- read.table("countmatrixNvpooledblastula.summary",sep="\t",comment.char = "#",header=TRUE) #\t is the tab, separator on the input table
 names(summary)
 library(tidyverse)
 summary2 <- read_tsv("countmatrixNvpooledblastula.summary",comment="#")
 summary2[1,]
 summary2[1,2:12]
+
 #Build a boxplot for the average number of reads
 mean(unlist(summary2[1,2:12]))
+
 #Does not make sense to compare reads coming from different-sized libraries
 colSums(summary2[,2:12])
+
 #Use this result to normalise our dataset by library size
 scaledCPM <- summary2[,2:12]/colSums(summary2[,2:12]) * 1000000 #Assume that each library has a size of 1 million
-#Does not work
 
 if (!require("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
